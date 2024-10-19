@@ -1,0 +1,814 @@
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #f9f9f9;
+      color:#333;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+/* Styles for the CTA container */
+.cta-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Styling for the heading text */
+.cta-heading p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px;
+}
+
+/* Container for the social icons */
+.cta-icons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Styling for each icon - Add light blue circle around icons */
+.cta-icon {
+    background-color: #38b6ff; 
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-icon:hover {
+    transform: scale(1.1);
+    background-color: #b2ebf2; /* Darker blue on hover */
+}
+
+/* Styling for the social media icons themselves */
+.cta-icon img {
+    width: 32px;
+    height: 32px;
+}
+
+/* Adding media query for responsiveness */
+@media (max-width: 768px) {
+    .cta-container {
+        bottom: 10px;
+        right: 10px;
+        padding: 8px 12px;
+    }
+
+    .cta-heading p {
+        font-size: 16px;
+    }
+
+    .cta-icon {
+        width: 32px;
+        height: 32px;
+        padding: 8px;
+    }
+
+    .cta-icon img {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+    main {
+      flex: 1;
+    }
+
+    /* Ensure that when the menu is open, body doesn't overflow */
+    body.nav-open {
+      overflow: hidden;
+    }
+
+    /* Header Styles */
+    header {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255); /* Updated background color */
+      color: #333;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      transition: padding 0.3s ease;
+    }
+/* Styling for logo and text container */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-family: 'Fraunces', serif; /* Use the same font as in the hero */
+  font-weight: 700; /* Bold text */
+  font-size: 40px; /* Adjust size as needed */
+  margin-left: 10px; /* Add space between the logo and the text */
+  color: #333; /* Color of the text */
+}
+
+    .logo {
+      max-width: 150px;
+      height: 45px;
+    }
+
+    /* Navigation Styles (Desktop & Mobile) */
+    .nav-desktop ul, .nav-mobile ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-desktop ul {
+      display: flex;
+    }
+
+    .nav-desktop li {
+      margin-left: 20px;
+    }
+
+    .nav-desktop li a, .nav-mobile li a {
+      text-decoration: none;
+      font-size: 30px;
+      color: black;
+    }
+
+
+    .nav-desktop li a:hover, .nav-mobile li a:hover {
+      text-decoration: none;
+      color: blue;
+    }
+
+    .nav-desktop li a:active, .nav-mobile li a:active {
+      text-decoration: none;
+      color: blue;
+    }
+
+.cta-button, .mcta {
+  margin-left: 20px; /* Adjust margin as needed */
+}
+
+.cta-button a, .mcta a {
+  display: inline-flex;
+  align-items: center;
+  background-color: #333; /* Adjust the background color as per your site’s theme */
+  color: white; /* Text color */
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button a {
+  font-size: 30px;
+  padding: 10px 25px;
+}
+
+.mcta a {
+  font-size: 18px;
+  padding: 8px 16px;
+}
+
+.cta-button a img, .mcta a img {
+  margin-left: 10px; /* Spacing between text and arrow */
+  width: 16px; /* Adjust the size of the arrow */
+}
+
+.cta-button a:hover, .mcta a:hover {
+  background-color: #555; /* Lighter color for hover effect */
+}
+
+/* Optional: Adjust button position for mobile */
+@media (max-width: 768px) {
+  .cta-button {
+    display: none;
+  }
+  .mcta {
+    margin-left: 0; /* You can adjust or remove this as needed */
+    margin-top: 10px; /* Add spacing if needed */
+    /* Additional styles specific to mobile can be added here */
+  }
+}
+
+
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      padding: 20px;
+      z-index: 999;
+    }
+
+    .nav-mobile.open {
+      display: flex;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 40px;
+      cursor: pointer;
+      color: black;
+}
+    /* Hero Section Styles */
+    .hero {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden; /* Ensure images don't overflow */
+    }
+
+    .hero img {
+      position: absolute;
+      width: 100%;
+      height: 80vh;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+    }
+
+
+/* Frosted Glass effect for Hero Text */
+.hero-text {
+  position: relative;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  backdrop-filter: blur(16px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  border-radius: 15px; /* Smooth corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  z-index: 10;
+  display: inline-block;
+  max-width: 80%; /* Limit width to avoid stretching across screen */
+}
+
+.hero h1, .hero p {
+  margin: 0;
+  color: white;
+  z-index: 10;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-family: 'Fraunces', serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Example for dark shadow */
+
+}
+
+.hero p {
+  font-size: 30px;
+  margin-top: 10px;
+  padding: 10px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Example for dark shadow */
+
+}
+
+/* Style the map container */
+.map-container {
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+/* Style the iframe (Google Map) */
+.custom-map {
+    width: 100%;
+    height: 450px;
+    border: none; 
+    outline: none;
+}
+
+.spacer {
+  width: 100%;
+  height: 66px;
+}
+
+/* Section styles */
+.project-snippet {
+    position: relative;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-snippet h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+    font-family: 'Fraunces', sans-serif;
+}
+
+.project-snippet p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Section Container */
+.get-started-section {
+    position: relative;
+    height: 400px; 
+    background: url('image/contact-us.jpg') no-repeat center center/cover; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Frosted Glass Effect */
+.frosted-glass-content {
+    background: rgba(255, 255, 255, 0.2); /* Transparent white background */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    color: white;
+    width: 80%; /* Responsive width */
+}
+
+/* Heading and Text */
+.frosted-glass-content h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.frosted-glass-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #f0f0f0;
+}
+
+/* Get Started Button */
+.get-started-button {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.get-started-button:hover {
+    background-color: #555;
+}
+
+/* Team Section Styles */
+.team-container, .award-container {
+    padding: 40px;
+    text-align: center;
+}
+
+.team-container {
+    background-color: #eff8ff;
+}
+
+.award-container {
+  background-color: transparent;
+}
+
+.team-container h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-family: 'Fraunces', sans-serif;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1600px;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.team-member h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #333;
+    font-family: 'Fraunces', sans-serif;
+}
+
+.team-member p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Project Page styling */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 columns */
+    gap: 20px; /* Space between columns */
+    padding: 20px;
+}
+
+/* Project item styling */
+.project {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+}
+
+.project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 10px;
+    text-align: center;
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.project-title {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Button styling */
+.view-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.view-button:hover {
+    background-color: #555;
+}
+
+.view-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+/* Responsive Design */
+/* Tablets - Stack into 2 columns */
+@media (max-width: 768px) {
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+        gap: 15px;
+    }
+}
+
+/* Mobile Devices - Stack into 1 column */
+@media (max-width: 480px) {
+    .projects-container {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 10px;
+    }
+}
+
+
+
+/* Contact Form Styles */
+.contact-form-container {
+    margin: 10px auto;
+    max-width: 1200px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+/* Form Row */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    gap: 20px;
+}
+
+/* Form Inputs */
+.form-input,
+.form-textarea {
+    font-family: 'Barlow', sans-serif;
+    width: calc(50% - 10px);
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-textarea {
+    width: 100%;
+    height: 100px;
+}
+
+/* Submit Button */
+.submit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px auto;
+    width: fit-content;
+}
+
+.send-icon {
+    width: 20px;
+    margin-right: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-input,
+    .form-textarea {
+        width: 100%;
+    }
+}
+
+
+
+/* Footer General Styles */
+footer {
+    background-color: #333;
+    padding: 40px;
+    color: white;
+}
+
+/* Footer Container */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Footer Column */
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin-right: 80px;
+}
+
+.footer-column p {
+  margin-bottom: 30px;
+}
+
+/* Footer Logo and Company Name */
+.footer-logo {
+    width: 40px;
+    height: 45px;
+    vertical-align: middle;
+}
+
+.company-name {
+    font-weight: bold;
+    font-family: 'Fraunces', sans-serif;
+    font-size: 40px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.social-icon {
+    height: 44px;
+    padding: 10px;
+    border: 2px solid #555;
+    border-radius: 8px;
+    background-color: #555;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Footer Navigation */
+.footer-nav {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-nav li {
+    margin-bottom: 5px;
+}
+
+.footer-nav li a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Footer Separator */
+.footer-separator {
+    margin-top: 40px;
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+}
+
+/* Footer Copyright */
+.footer-copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.footer-copyright p {
+    margin: 0;
+}
+
+.footer-copyright a {
+  text-decoration: none;
+  font-style: italic;
+  color: white;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+     .team-grid {
+        grid-template-columns: 1fr;
+    }
+  
+   .get-started-section {
+        height: auto; 
+   }
+
+   .frosted-glass-content h2 {
+      font-size: 24px;
+  }
+
+   .frosted-glass-content p {
+     font-size: 16px;
+  }
+    
+   .project-button {
+     justify-content: center; 
+     white-space: nowrap;
+ }
+
+   .brand-info {
+     flex-direction: column;
+     padding: 40px 20px;
+     text-align: center;
+}
+
+   .brand-info img {
+     order: 1; 
+     max-width: 100%; 
+     margin-bottom: 15px;
+  }
+
+  .brand-text {
+    order: 2;
+    max-width: 100%; 
+    }
+
+    header {
+      padding: 20px 10px;
+   }
+
+    .logo {
+     height: 30px;
+  }
+
+    .logo-text {
+      font-size: 24px;
+  }
+
+  footer {
+      padding: 20px;
+  }
+
+  .footer-logo {
+      height: 30px;
+  }
+
+  .footer-column {
+    min-width: 200px;
+    margin-right: 5px;
+  }
+  
+  .footer-copyright {
+    font-size: 14px;
+  }
+  .company-name {
+    font-size: 30px;
+  }
+     
+   .nav-desktop {
+    display: none;
+   }
+
+   .hamburger {
+     display: block;
+     font-size: 30px;
+  }
+
+  .hero h1 {
+      font-size: 24px;
+  }
+
+  .hero p {
+     font-size: 18px;
+   }
+  
+
+ @media (max-width: 480px) {
+    .hamburger {
+      position: absolute;
+      right: 10px;
+     }
+
+    .nav-mobile ul li a {
+      font-size: 18px;
+      color: black;
+     }
+      
+     .company-name {
+        font-size: 24px;
+    }
+    }
+    

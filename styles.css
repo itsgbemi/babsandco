@@ -1,0 +1,775 @@
+/* Root Styles */
+    :root {
+      --font-size-desktop: 18px;
+      --font-size-mobile: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 400;
+      font-size: var(--font-size-desktop);
+      line-height: var(--line-height-desktop);
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+/* Styles for the CTA container */
+.cta-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Styling for the heading text */
+.cta-heading p {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px;
+}
+
+/* Container for the social icons */
+.cta-icons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Styling for each icon - Add light blue circle around icons */
+.cta-icon {
+    background-color: #38b6ff; 
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-icon:hover {
+    transform: scale(1.1);
+    background-color: #b2ebf2; /* Darker blue on hover */
+}
+
+/* Styling for the social media icons themselves */
+.cta-icon img {
+    width: 32px;
+    height: 32px;
+}
+
+
+    main {
+      flex: 1;
+    }
+
+    /* Ensure that when the menu is open, body doesn't overflow */
+    body.nav-open {
+      overflow: hidden;
+    }
+
+    /* Header Styles */
+    header {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255); /* Updated background color */
+      color: #333;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      transition: padding 0.3s ease;
+    }
+/* Styling for logo and text container */
+.logo-container {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-text {
+  font-family: 'Fraunces', serif; 
+  font-weight: 700; 
+  font-size: 40px; 
+  margin-left: 10px; 
+  color: #333; 
+}
+
+    .logo {
+      max-width: 150px;
+      height: 45px;
+    }
+
+    /* Navigation Styles (Desktop & Mobile) */
+    .nav-desktop ul, .nav-mobile ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-desktop ul {
+      display: flex;
+    }
+
+    .nav-desktop li {
+      margin-left: 20px;
+    }
+
+    .nav-desktop li a, .nav-mobile li a {
+      text-decoration: none;
+      font-size: 24px;
+      color: black;
+    }
+
+    .nav-desktop li a:hover, .nav-mobile li a:hover {
+      text-decoration: none;
+      color: blue;
+    }
+
+    .nav-desktop li a:active, .nav-mobile li a:active {
+      text-decoration: none;
+      color: blue;
+    }
+
+.cta-button, .mcta {
+  margin-left: 20px; /* Adjust margin as needed */
+}
+
+.cta-button a, .mcta a {
+  display: inline-flex;
+  align-items: center;
+  background-color: #333; /* Adjust the background color as per your site’s theme */
+  color: white; /* Text color */
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button a {
+  font-size: 30px;
+  padding: 10px 25px;
+}
+
+.mcta a {
+  font-size: 18px;
+  padding: 8px 16px;
+}
+
+.cta-button a img, .mcta a img {
+  margin-left: 10px; /* Spacing between text and arrow */
+  width: 16px; /* Adjust the size of the arrow */
+}
+
+.cta-button a:hover, .mcta a:hover {
+  background-color: #555; /* Lighter color for hover effect */
+}
+
+/* Optional: Adjust button position for mobile */
+@media (max-width: 768px) {
+  .cta-button {
+    display: none;
+  }
+  .mcta {
+    margin-left: 0;
+    margin-top: 10px; 
+  }
+  
+    .cta-container {
+        bottom: 10px;
+        right: 10px;
+        padding: 8px 12px;
+    }
+
+    .cta-heading p {
+        font-size: 16px;
+    }
+
+    .cta-icon {
+        width: 32px;
+        height: 32px;
+        padding: 8px;
+    }
+
+    .cta-icon img {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      padding: 20px;
+      z-index: 999;
+    }
+
+    .nav-mobile.open {
+      display: flex;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 40px;
+      cursor: pointer;
+      color: black;
+}
+    /* Hero Section Styles */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden; /* Ensure images don't overflow */
+    }
+
+    .hero img {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      animation: crossfade 36s infinite; /* Crossfade animation */
+    }
+
+    .hero img:nth-child(1) { animation-delay: 0s; }
+    .hero img:nth-child(2) { animation-delay: 6s; }
+    .hero img:nth-child(3) { animation-delay: 12s; }
+    .hero img:nth-child(4) { animation-delay: 18s; }
+    .hero img:nth-child(5) { animation-delay: 24s; }
+    . img:nth-child(6) { animation-delay: 30s; }
+
+    @keyframes crossfade {
+      0%, 100% { opacity: 0; }
+      16%, 83% { opacity: 1; }
+    }
+
+/* Frosted Glass effect for Hero Text */
+.hero-text {
+  position: relative;
+  padding: 20px 40px;
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  backdrop-filter: blur(16px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  border-radius: 15px; /* Smooth corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  z-index: 10;
+  display: inline-block;
+  max-width: 80%; /* Limit width to avoid stretching across screen */
+}
+
+.hero h1, .hero p {
+  margin: 0;
+  color: white;
+  z-index: 10;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-family: 'Fraunces', serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Example for dark shadow */
+
+}
+
+.hero p {
+  font-size: 30px;
+  margin-top: 10px;
+  padding: 10px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Example for dark shadow */
+
+}
+
+/* Achievements Section */
+.achievements {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin: 50px 0;
+}
+
+.achievement {
+  flex: 1;
+}
+
+.number {
+  font-size: 48px;
+  font-weight: bold;
+  display: inline-block; /* Make sure it's inline */
+  line-height: 1;
+}
+
+.plus {
+  font-size: 48px;
+  font-weight: bold;
+  display: inline-block; /* Keep the plus on the same line */
+  line-height: 1;
+}
+
+.achievement p {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #666;
+}
+
+/* Brand styling */
+.brand-info {
+    display: flex;
+    flex-direction: row; /* Side-by-side by default on larger screens */
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.brand-info img {
+    max-width: 50%; 
+    height: auto;
+    border-radius: 8px;
+}
+
+.brand-text {
+    max-width: 45%; 
+}
+
+.brand-text h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.brand-text p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Read More Button Styles */
+/* Button Styles */
+.project-button {
+    display: inline-flex; /* Use flexbox to align text and image in one line */
+    align-items: center; /* Vertically align text and image */
+    padding: 10px 20px;
+    background-color: #333; /* Dark background */
+    color: white; /* White text */
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 20px; /* Space above the button */
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Prevents wrapping of text and image */
+}
+
+.project-button:hover {
+    background-color: #555; /* Lighter background on hover */
+}
+
+.project-button img {
+    margin-left: 10px; /* Space between text and arrow icon */
+    width: 16px; /* Fixed size for the icon */
+    height: 16px; /* Ensure consistent height */
+    display: inline-block; /* Ensure image behaves like inline content */
+    vertical-align: middle; /* Align image vertically with the text */
+}
+
+/* Section styles */
+.project-snippet {
+    position: relative;
+    padding: 20px;
+    text-align: center;
+}
+
+.project-snippet h2, .project-snippet h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.project-snippet h3 {
+  font-size: 19px;
+}
+.project-snippet p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Image row container */
+.image-row {
+    display: flex;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling for both touch and manual arrows */
+    gap: 10px; /* Space between images */
+    padding: 10px 0;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none;  /* Hide scrollbar in IE and Edge */
+}
+
+.image-row::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari */
+}
+
+.image-row a {
+    flex: 0 0 auto; /* Prevent images from shrinking */
+}
+
+.image-row img {
+    width: 300px; /* Adjust based on your desired size */
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.image-row img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Slider arrow buttons */
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.slider-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Section Container */
+.get-started-section {
+    position: relative;
+    height: 400px; /* Adjust based on design */
+    background: url('image/contact-us.jpg') no-repeat center center/cover; /* Background Image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Frosted Glass Effect */
+.frosted-glass-content {
+    background: rgba(255, 255, 255, 0.2); /* Transparent white background */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    color: white;
+    width: 80%; /* Responsive width */
+}
+
+/* Heading and Text */
+.frosted-glass-content h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.frosted-glass-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #f0f0f0;
+}
+
+/* Get Started Button */
+.get-started-button {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.get-started-button:hover {
+    background-color: #555;
+}
+
+/* Footer General Styles */
+footer {
+    background-color: #333;
+    padding: 40px;
+    color: white;
+}
+
+/* Footer Container */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Footer Column */
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin-right: 80px;
+}
+
+.footer-column p {
+  margin-bottom: 30px;
+}
+
+/* Footer Logo and Company Name */
+/* Styling for the footer logo link */
+.footer-logo-link {
+  text-decoration: none; /* Removes underline */
+  display: inline-flex;  /* Aligns logo and text inline */
+  align-items: center;   /* Vertically centers the text and logo */
+  gap: 5px; /* Adds space between the logo and the company name */
+}
+
+
+.footer-logo {
+    width: 40px;
+    height: 45px;
+    vertical-align: middle;
+}
+
+.company-name {
+    font-weight: bold;
+    font-family: 'Fraunces', sans-serif;
+    font-size: 40px;
+    vertical-align: middle;
+    color: white;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.social-icon {
+    height: 44px;
+    padding: 10px;
+    border: 2px solid #555;
+    border-radius: 8px;
+    background-color: #555;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    background-color: #b2ebf2;
+}
+
+/* Footer Navigation */
+.footer-nav {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-nav li {
+    margin-bottom: 5px;
+}
+
+.footer-nav li a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Footer Separator */
+.footer-separator {
+    margin-top: 40px;
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+}
+
+/* Footer Copyright */
+.footer-copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.footer-copyright p {
+    margin: 0;
+}
+
+.footer-copyright a {
+  text-decoration: none;
+  font-style: italic;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .get-started-section {
+        height: auto; 
+    }
+
+    .frosted-glass-content h2 {
+        font-size: 24px;
+    }
+
+    .frosted-glass-content p {
+        font-size: 16px;
+    }
+    
+    .project-button {
+        justify-content: center; 
+        white-space: nowrap;
+    }
+
+    .brand-info {
+        flex-direction: column;
+   	padding: 40px 20px;
+        text-align: center;
+    }
+
+    .brand-info img {
+        order: 1; 
+        max-width: 100%;
+        margin-bottom: 15px; 
+    }
+
+    .brand-text {
+        order: 2; 
+        max-width: 100%;
+    }
+
+  .achievements {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .achievement {
+    margin-bottom: 20px;
+  }
+  
+      :root {
+        --font-size-desktop: var(--font-size-mobile);
+        --line-height-desktop: var(--line-height-mobile);
+      }
+
+      header {
+        padding: 20px 10px;
+      }
+
+ .logo {
+  height: 30px;
+}
+
+.logo-text {
+  font-size: 24px;
+}
+
+footer {
+  padding: 20px;
+}
+
+.footer-logo {
+  height: 30px;
+}
+
+.footer-column {
+  min-width: 300px;
+  margin-right: 5px;
+}
+
+.footer-copyright {
+  font-size: 14px;
+}
+
+.company-name {
+  font-size: 30px;
+}
+      .nav-desktop {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+        font-size: 30px;
+      }
+
+      .hero h1 {
+        font-size: 24px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+      
+      .hero-text {
+      padding: 40px 10px;
+    }
+
+    @media (max-width: 480px) {
+
+      .hamburger {
+        position: absolute;
+        right: 10px;
+      }
+
+      .nav-mobile ul li a {
+        font-size: 18px;
+        color: black;
+      }
+      
+      .company-name {
+        font-size: 24px;
+      }
+    }
